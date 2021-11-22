@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.grid {
+  display: grid;
+  /* border: 1px solid black; */
+  width: 480px;
+  height: 480px;
+}
+
+.etch {
+  background-color: black;
+}
