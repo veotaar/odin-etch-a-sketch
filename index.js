@@ -1,7 +1,17 @@
+let divAmount = 16;
+const container = document.querySelector(".grid");
+
+const slider = document.querySelector(".slider");
+console.log(slider);
+const sliderValue = document.querySelector(".slider-value");
+
+sliderValue.innerText = slider.value;
 
 function createDivs(n) {
 
-  const container = document.querySelector(".grid");
+  while(container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
 
   container.style.gridTemplateColumns = `repeat(${n}, 1fr)`;
   container.style.gridTemplateRows = `repeat(${n}, 1fr)`;
@@ -16,9 +26,19 @@ function createDivs(n) {
 
 }
 
-createDivs(10);
+createDivs(divAmount);
+slider.value = divAmount;
+sliderValue.innerText = `${slider.value} x ${slider.value}`;
+
+console.log(container);
 
 function clearPad() {
   const blocks = Array.from(document.querySelectorAll(".block"));
   blocks.forEach(block => block.classList.remove("etch"));
+}
+
+slider.oninput = function() {
+  let divs = this.value;
+  sliderValue.innerText = `${divs} x ${divs}`;
+  createDivs(this.value);
 }
