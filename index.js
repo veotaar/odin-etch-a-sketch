@@ -1,10 +1,13 @@
 let divAmount = 16;
+
 const container = document.querySelector(".grid");
 
-const slider = document.querySelector(".slider");
-console.log(slider);
-const sliderValue = document.querySelector(".slider-value");
+let gridContainerWidthAndHeight = "480px";
+container.style.width = gridContainerWidthAndHeight;
+container.style.height = gridContainerWidthAndHeight;
 
+const slider = document.querySelector(".slider");
+const sliderValue = document.querySelector(".slider-value");
 sliderValue.innerText = slider.value;
 
 function createDivs(n) {
@@ -29,8 +32,6 @@ function createDivs(n) {
 createDivs(divAmount);
 slider.value = divAmount;
 sliderValue.innerText = `${slider.value} x ${slider.value}`;
-
-console.log(container);
 
 function clearPad() {
   const blocks = Array.from(document.querySelectorAll(".block"));
